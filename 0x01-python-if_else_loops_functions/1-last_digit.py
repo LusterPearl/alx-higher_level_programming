@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-number = random.randint (-1000, 1000)
+number = random.randint(-1000, 1000)
 last_digit = abs(number) % 10
 print("The string Last digit of")
 print(number)
