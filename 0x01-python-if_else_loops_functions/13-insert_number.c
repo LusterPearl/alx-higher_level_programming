@@ -10,34 +10,28 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	/* initialize a pointer to the current node */
-	listint_t *current = *head;
-	/* declare a pointer for the new node */
-	listint_t *new node;
+	/* create a new node and allocate memory for it */
+	listint_t *node = *head, *new;
 
-	/* allocate memory for the new node and check for allocation success */
-	new_node = malloc(sizeof(listint_t));
-	if (new_node == NULL)
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
 		return (NULL);
 
-	/* initialize the new node with the provided number */
-	new_node->n = number;
-
-	/* handle list is empty or the new node should be the new head */
-	if (current == NULL || current->n >= number)
+	/* set the value of the new code to the given number */
+	new->n = number;
+	/* if the list is empty or the num is small insert at the beginning */
+	if (node == NULL || node->n >= number)
 	{
-		new_node->next = current;
-		*head = new_node;
-		return (new_node);
+		new->next = node;
+		*head = new;
+		return (new);
 	}
+	/* tranverse the list to find the correct position */
+	while (node && node->next && node->next->n < number)
+		node = node->next;
+	/* insert the new node into the list */
+	new->next = node->next;
+	node->next = new;
 
-	/* Traverse the list to find the current posistion to insert the new node */
-	while (current && current->next && current->next->n < number)
-		current = current->next;
-
-	/*Insert the new node at the appropriate position */
-	new_node->next = current->next;
-	current->next = new_node;
-
-	return (new_node);
+	return (new);
 }
