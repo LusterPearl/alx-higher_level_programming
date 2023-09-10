@@ -1,4 +1,11 @@
+/*
+ * File: 13-is_palindrome.c
+ * Auth: Mbah Nkemdinma
+ */
+
 #include "lists.h"
+
+int is_palindrome(listint_t **head);
 
 /**
  * is_palindrome - checking if the singly linked list is palindrome
