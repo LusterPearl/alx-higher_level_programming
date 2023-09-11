@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 listint_t *reverse_listint(listint_t **head);
 int is_palindrome(listint_t **head);
@@ -59,14 +61,14 @@ int is_palindrome(listint_t **head)
  *
  * Return: 0
  */
-int main(void)
-{
+/*int main(void)
+{*/
 	/*create a sample linked list */
-	listint_t *head = NULL;
-	listint_t *current;
+	/*listint_t *head = NULL;
+	listint_t *current;*/
 
 	/* populated the linked list */
-	int values[] = {1, 2, 3, 3, 2, 1};
+	/*int values[] = {1, 2, 3, 3, 2, 1};
 
 	for (int i = 0; i < 6; i++)
 	{
@@ -80,10 +82,10 @@ int main(void)
 		new_node->n = values[i];
 		new_node->next = head;
 		head = new_node;
-	}
+	}*/
 
 	/* check if the linked list is a palindrome */
-	int result = is_palindrome(&head);
+	/*int result = is_palindrome(&head);
 
 	if (result)
 	{
@@ -101,4 +103,5 @@ int main(void)
 		free(current);
 	}
 	return (0);
-}
+}*/
+
