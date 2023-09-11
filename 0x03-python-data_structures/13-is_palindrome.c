@@ -1,31 +1,6 @@
+#include "lists.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "lists.h"
-
-/**
- * add_nodeint - Tnserts a new node at the beginning
- * @head: A pointer to the head of the list
- * @n: The integer value to be added to the list
- *
- * Return: A ponter to the newly created node
- */
-listint_t *add_nodeint(listint_t **head, const int n)
-{
-	listint_t *new_node;
-
-	/* allocated memory for a new node */
-	new_node = malloc(sizeof(listint_t));
-	if (new_node == NULL)
-		return (NULL);
-
-	/*set the value of the new node */
-	new_node->n = n;
-	new_node->next = *head;
-	*head = new_node;
-
-	/*return a pointer to the newly created node */
-	return (new_node);
-}
 
 /**
  * is_palindrome - checking if the singly linked list is palindrome
