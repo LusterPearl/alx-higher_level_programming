@@ -1,14 +1,13 @@
-#include "lists.h"
 #include <stdlib.h>
 #include <stdio.h>
-
+#include "lists.h"
 
 /**
  * is_palindrome - checking if the singly linked list is palindrome
- * @head: A pointer the the linked list.
+ * @head: A pointer to the linked list.
  *
- * Return: if the list is not palindrome
- * if the list is palindrome
+ * Return: 0 if the list is not palindrome
+ * if the list a is palindrome -1.
  */
 int is_palindrome(listint_t **head)
 {
@@ -34,7 +33,7 @@ int is_palindrome(listint_t **head)
 		slow = tmp;
 	}
 
-	/* if the list has ann odd number skips */
+	/* if the list has an odd number skips */
 	if (fast != NULL)
 	{
 		slow = slow->next;
