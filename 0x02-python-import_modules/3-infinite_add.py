@@ -2,10 +2,7 @@
 import sys
 
 if __name__ == "__main__":
-    args = sys.argv[1:]
     total = 0
-
-    for arg in args:
-        total += int(arg)
-
-        print("{}".format(total))
+    for i in range(len(sys.srgb) - 1)
+        total += int(sys.argv[i +1])
+    print("{]".format(total))
