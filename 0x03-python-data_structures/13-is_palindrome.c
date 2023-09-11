@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-listint_t *reverse_listint(listint_t **head);
-int is_palindrome(listint_t **head);
 
 /**
  * is_palindrome - checking if the singly linked list is palindrome
@@ -16,7 +14,7 @@ int is_palindrome(listint_t **head)
 {
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		/* an empty list or a list with a single element */
+		/* a list with a single element */
 		return (1);
 	}
 
