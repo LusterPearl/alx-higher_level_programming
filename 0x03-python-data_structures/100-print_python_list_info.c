@@ -1,6 +1,9 @@
-#include <python.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <Python.h>
+
 /**
-* print_python_list_info = prints out the smallest info about python
+* print_python_list_info - prints out the smallest iInfo about python
 * @p: A pointer to a PuObject representing a list
 */
 void print_python_list_info(PyObject *p)
