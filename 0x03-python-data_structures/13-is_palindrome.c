@@ -27,12 +27,19 @@ int is_palindrome(listint_t **head)
 	while (fast != NULL && fast->next != NULL)
 	{
 		fast = fast->next->next;
-		/*reverse the frist half of the list */
+
+		/*reversei the first half of the list */
 		tmp = slow->next;
 		slow->next = prev;
 		prev = slow;
 		slow = tmp;
 	}
+	/* if the list has an odd number */
+	if (fast != NULL)
+	{
+		slow = slow->next;
+	}
+
 	/* comapare the first half with the second half */
 	while (prev != NULL && slow != NULL)
 	{
