@@ -45,7 +45,7 @@ class Square:
 
     def __ne__(self, other):
         """Inequality comparison based on the square's area."""
-        return self.area() != other.ares()
+        return self.area() != other.area()
 
     def __lt__(self, other):
         """Less than comparison based on the square's area."""
