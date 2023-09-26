@@ -29,15 +29,15 @@ class Square:
             TypeError: If value is not a number (float or integer).
             ValueError: If value is less than 0.
         """
-        if not isinstance(value, (int, float)):
+        if not isinstance(value, int):
             raise TypeError("size must be a number")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
     def area(self):
         """Calculate and return the area of the square."""
-        return self.__size ** 2
+        return self.__size * self_size)
 
     def __eq__(self, other):
         """Equality comparison based on the square's area."""

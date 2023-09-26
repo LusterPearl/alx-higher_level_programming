@@ -1,4 +1,8 @@
+#!/usr/bin/python3
+
+
 import Math
+
 
 class MagicClass:
     def __init__(self, radius=0):
