@@ -66,7 +66,8 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
-        """Print the square using '#' characters with the specified position."""
+        """Print the square using '#' characters with the specified position.
+        """
         if self.__size == 0:
             print()
         else:
