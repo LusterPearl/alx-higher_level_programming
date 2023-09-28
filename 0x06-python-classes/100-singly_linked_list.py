@@ -2,7 +2,12 @@
 
 
 class Node:
-    """Class representing a node in a singly linked list."""
+    """Node class for a singly linked list.
+
+    Attributes:
+        data (int): The data stored in the node.
+        next_node (Node): The reference to the next node in the list.
+        """
 
     def __init__(self, data, next_node=None):
         """Initialize a new Node instance.
@@ -52,16 +57,20 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
+    class SinglyLinkedList:
+        """
+        SingyLinkedlist class represents a singly linked list.
 
-class SinglyLinkedList:
-        """Class representing a singly linked list."""
+        Attributes:
+            head (Node): The head of the linked list.
+        """
 
-        def __init__(self):
-            """Initialize a new SinglyLinkedList instance."""
-            self.head = None
+    def __init__(self):
+        self.head = None
 
-        def sorted_insert(self, value):
-            """Insert a new Node into the correct sorted position in the list.
+    def sorted_insert(self, value):
+        """
+        Insert a new Node into the correct sorted position in the list.
 
         Args:
             value (int): The data to store in the new node.
