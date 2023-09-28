@@ -60,7 +60,7 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
-    class SinglyLinkedList:
+   class SinglyLinkedList:
         """
         SingyLinkedlist class represents a singly linked list.
 
@@ -80,22 +80,27 @@ class Node:
         """
 
         new_node = Node(value)
-        if self.head is None or value < self.head.data:
-            new_node.next_node = self.head
-            self.head = new_node
+        if self.__head is None or self.__head.data >= value:
+            new_node.next_node = self.__head
+            self.__head = new_node
+
         else:
-            current = self.head
-            while current.next_node is not None and
-            current.next_node.data < value:
-                current = current.next_node
-            new_node.next_node = current.next_node
-            current.next_node = new_node
+            prev_node = self.__head
+            for current in self.__iter__():
+                if current.data >= value:
+                    prev_node.next_node = new_node
+                    new_node.next_node = current
+                    break
+                prev_node = current
 
     def __str__(self):
-        """Return a string representation of the linked list,"""
-        result = ""
-        current = self.head
-        while current is not None:
-            result += str(current.data) + "\n"
+        result = []
+        for current in self.__iter__():
+            result.append(str(current.data))
+        return "\n".join(result)
+
+    def __iter__(self):
+        current = self.__head
+        while current:
+            yield current
             current = current.next_node
-        return result.strip()
