@@ -1,6 +1,3 @@
-#!/usr/bin/python3
-
-
 class Node:
     """Node class for a singly linked list.
 
