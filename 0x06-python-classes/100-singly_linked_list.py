@@ -5,10 +5,14 @@
 class Node:
     """Node class for a singly linked list.
 
-    Attributes:
+    Args:
         data (int): The data stored in the node.
         next_node (Node): The reference to the next node in the list.
-        """
+
+    Returns:
+        True for success, false otherwise
+
+    """
 
     def __init__(self, data, next_node=None):
         """Initialize a new Node instance.
@@ -60,7 +64,10 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
-   class SinglyLinkedList:
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+
         """
         SingyLinkedlist class represents a singly linked list.
 
@@ -68,39 +75,34 @@ class Node:
             head (Node): The head of the linked list.
         """
 
-    def __init__(self):
-        self.head = None
-
     def sorted_insert(self, value):
         """
         Insert a new Node into the correct sorted position in the list.
 
         Args:
             value (int): The data to store in the new node.
+
+        Return: return success or failure.
+
         """
 
         new_node = Node(value)
-        if self.__head is None or self.__head.data >= value:
-            new_node.next_node = self.__head
-            self.__head = new_node
+        if self.__head is None or value < self.head.data:
+            new_node.next_node = self.head
+            self.head = new_node
 
         else:
-            prev_node = self.__head
-            for current in self.__iter__():
-                if current.data >= value:
-                    prev_node.next_node = new_node
-                    new_node.next_node = current
-                    break
-                prev_node = current
+            current = self.head
+            while (current.next_node is not None and
+                    current.next_node.data < value):
+            new_node.next_node = current.next_node
+            current.next_node = new_node
 
     def __str__(self):
-        result = []
-        for current in self.__iter__():
-            result.append(str(current.data))
-        return "\n".join(result)
-
-    def __iter__(self):
-        current = self.__head
-        while current:
-            yield current
+        """Return a string representation of the linked list."""
+        result = ""
+        current = self.head
+        while cureent is not None:
+            result += str(current.data) + "\n"
             current = current.next_node
+        return result.strip()
