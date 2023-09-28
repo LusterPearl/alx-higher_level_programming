@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""Module that defines a Square class."""
+
+
 class Node:
     """Node class for a singly linked list.
 
