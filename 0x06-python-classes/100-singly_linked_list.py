@@ -16,7 +16,9 @@ class Node:
         Args:
             data (int): The data (integer) to store in the node.
             next_node (Node, optional): The next node in the list.
-                Defaults to None."""
+                Defaults to None.
+        """
+
         self.data = data
         self.next_node = next_node
 
