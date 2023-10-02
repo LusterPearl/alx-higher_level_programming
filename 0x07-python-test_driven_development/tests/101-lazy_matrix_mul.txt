@@ -1,0 +1,59 @@
+#!/usr/bin/python3
+"""
+Unittest for lazy_matrix_mul([..], [..])
+"""
+
+import doctest
+from io import StringIO
+import sys
+import numpy as np
+
+# Import the lazy_matrix_mul function from 101-lazy_matrix_mul.py
+lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+def run_tests():
+    """
+    Run the lazy_matrix_mul function with various test cases.
+    """
+    # Test case 1: Multiply two matrices of compatible dimensions
+    matrix_a = [[1, 2], [3, 4]]
+    matrix_b = [[1, 2], [3, 4]]
+    expected_result = [[7, 10], [15, 22]]
+    assert (lazy_matrix_mul(matrix_a, matrix_b) == np.array(expected_result)).all()
+
+    # Test case 2: Multiply two matrices of different dimensions (not compatible)
+    matrix_a = [[1, 2]]
+    matrix_b = [[3, 4], [5, 6]]
+    # The matrices cannot be multiplied, expect a ValueError
+    try:
+        lazy_matrix_mul(matrix_a, matrix_b)
+    except ValueError as ve:
+        assert str(ve) == "shapes (1,2) and (2,2) not aligned: 2 (dim 1) != 2 (dim 0)"
+
+    # Test case 3: Multiply matrices with non-integer or non-float elements
+    matrix_a = [[1, 2], [3, "four"]]
+    matrix_b = [["five", 6], [7, 8]]
+    # The matrices contain non-integer/non-float elements, expect a TypeError
+    try:
+        lazy_matrix_mul(matrix_a, matrix_b)
+    except TypeError as te:
+        assert str(te) == "can't multiply sequence by non-int of type 'str'"
+
+    # Test case 4: Multiply an empty matrix
+    matrix_a = [[]]
+    matrix_b = [[1, 2], [3, 4]]
+    # One of the matrices is empty, expect a ValueError
+    try:
+        lazy_matrix_mul(matrix_a, matrix_b)
+    except ValueError as ve:
+        assert str(ve) == "multiplication by empty matrix"
+
+if __name__ == '__main__':
+    # Redirect stdout to suppress the doctest output
+    sys.stdout = StringIO()
+    # Run doctests from the 101-lazy_matrix_mul.py module
+    doctest.testfile("../101-lazy_matrix_mul.py", globs=globals())
+    # Restore stdout
+    sys.stdout = sys.__stdout__
+    # Run additional test cases
+    run_tests()

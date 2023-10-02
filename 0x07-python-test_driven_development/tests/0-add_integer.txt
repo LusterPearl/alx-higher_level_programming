@@ -1,48 +1,34 @@
-# Test cases for add_integer function
-
-#Import the add_integer function from the module
+Test add_integer function
 >>> add_integer = __import__('0-add_integer').add_integer
 
-# Test case 1: Adding two positive integers
+# Test case 1: Adding two integers
 >>> add_integer(1, 2)
 3
 
-#Test case 2: Adding a positive integer and a negative integer
+# Test case 2: Adding an integer and a negative integer
 >>> add_integer(100, -2)
 98
 
-#Test case 3: Adding one integer (default value for b)
+# Test case 3: Adding an integer and the default value (98)
 >>> add_integer(2)
 100
 
-#Test case 4: Adding two floating- point numbers (should cast them to integers)
+# Test case 4: Adding a float and a negative integer (floats should be casted to integers)
 >>> add_integer(100.3, -2)
 98
 
-# Test case 5: Attempting to add an integer and a string (should raise TypeError)
->>> try:
-...     add_integer(4, "School")
-... except TypeError as e:
-...     print(str(e))  # Print the actual error message
-b must be an integer
-# Expecting "b must be an integer"
+# Test case 5: Trying to add an integer and a string (should raise a TypeError)
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
 
-# Test case 6: Attempting to add None (should raise TypeError)
->>> try:
-...     add_integer(None)
-... except TypeError as e:
-...     print(str(e))  # Print the actual error message
-a must be an integer
-# Expecting "a must be an integer"
+# Test case 6: Trying to add None (should raise a TypeError)
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
 
-# Test case 6: Attempting to add None (should raise TypeError)
->>> try:
-...     add_integer(None)
-... except TypeError as e:
-...     print(str(e))  # Print the actual error message
-a must be an integer
-# Expecting "a must be an integer"
-
-#Test case 7: Adding two large integers
+# Test case 7: Adding two large integers
 >>> add_integer(1000000000, 999999999)
 1999999999
