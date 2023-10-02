@@ -168,9 +168,9 @@ class Rectangle:
         Create a new square Rectangle instance with equal width and height.
 
         Args:
-            size (int, optional): Thesize of the square.
+            size (int, optional): The size of the square.
 
         Returns:
-            Rectangle: A new Rectangle instance reprensting square.
+            Rectangle: A new Rectangle instance reprensenting square.
         """
         return cls(size, size)
