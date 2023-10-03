@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define a function name copy_list that l as input."""
 
-def copy_list(l):
+
+def copy_list(input_list):
     """Defines a copy(clone) list"""
-    return l[:]
+    return input_list[:]
