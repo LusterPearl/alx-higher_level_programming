@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Multiply tow matrices """
 
 import numpy as np
 

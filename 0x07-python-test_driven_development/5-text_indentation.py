@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" Prints a new text lines """
+
 
 def text_indentation(text):
     """

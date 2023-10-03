@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" To create a divided matrix """
+
+
 def matrix_divided(matrix, div):
     """
 
