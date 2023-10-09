@@ -1,0 +1,9 @@
+MyList.append
+MyList.extend
+MyList.insert
+MyList.remove
+MyList.pop
+MyList.count
+MyList.sort
+MyList.reverse
+MyList.print_sorted
