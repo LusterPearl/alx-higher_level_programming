@@ -4,6 +4,8 @@ Defines a class Rectangle that inherits from BaseGeometry.
 """
 
 
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
 class Rectangle(BaseGeometry):
     """
     A class representing a rectangle.
@@ -24,7 +26,7 @@ class Rectangle(BaseGeometry):
 
     def area(self):
         """
-        Calculates and return the area of the rectangles.
+        Calculates and return the area of the rectangle.
 
         Returns:
             int: The area of the rectangle.

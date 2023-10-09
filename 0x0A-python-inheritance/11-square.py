@@ -4,6 +4,8 @@ Defines a class Square that inherits from Rectangle.
 """
 
 
+Rectangle = __import__('9-rectangle').Rectangle
+
 class Square(Rectangle):
     """
     A class representing a sqaure.
@@ -16,14 +18,4 @@ class Square(Rectangle):
         Args:
             size (int): The size of the square.
         """
-        self.integer_validator("size", size)
         super().__init__(size, size)
-
-    def __str__(self):
-        """
-        Return a string representation of the square.
-
-        Returns:
-            str: The square description in the format [square] <size>/<size>
-        """
-        return "[Square] {}/{}".format(self.width, self.height)

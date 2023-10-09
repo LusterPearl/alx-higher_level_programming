@@ -4,7 +4,7 @@ Defines an empty class BaseGeometry.
 """
 
 
-Class BaseGeometry:
+class BaseGeometry:
     """
     An empty class for future implementation
     """
