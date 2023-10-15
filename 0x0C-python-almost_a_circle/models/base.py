@@ -7,11 +7,9 @@ import json
 class Base:
     """Base class for managing id attribute"""
 
-
     __nb_objects = 0
 
-
-    def __init__(self, id=None)
+    def __init__(self, id=None):
         """Initialize Base instance with optional id"""
         if id is not None:
             self.id = id
@@ -33,7 +31,7 @@ class Base:
             list_objs = []
         json_list = [obj.to_dictionary() for obj in list_objs]
         json_string = cls.to_json_string(json_list)
-        filename = cla.__name__ + '.json'
+        filename = cls.__name__ + '.json'
         with open(filename, 'w') as file:
             file.write(json_string)
 
@@ -54,8 +52,8 @@ class Base:
 
         dummy.update(**dictionary)
         return dummy
-    
-    @classmothod
+
+    @classmethod
     def load_from_file(cls):
         filename = cls.__name__ + ".json"
         try:

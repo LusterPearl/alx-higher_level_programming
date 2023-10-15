@@ -4,7 +4,7 @@
 from models.base import Base
 
 
-class Rectanle(Base):
+class Rectangle(Base):
     """Rectangle class that inherits from Base"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -76,7 +76,9 @@ class Rectanle(Base):
         return self.width * self.height
 
     def display(self):
-        """Display the Rectangle with '#' charactes, considering x and y offsets"""
+        """Display the Rectangle with '#' characters
+            considering x and y offsets
+        """
         for _ in range(self.y):
             print()
         for _ in range(self.height):
@@ -84,14 +86,26 @@ class Rectanle(Base):
 
     def __str__(self):
         """Override the string representation of the Rectangle"""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - " \
+               f"{self.width}/{self.height}"
 
-    def update(self, *args):
-        """Update Rectangle attributes using no-keyword arguments"""
-        attrs ['id', 'width', 'height', 'x', 'y']
-        for i, arg in enumerate(args):
-            setattr(self, attrs[i], arg)
-    else:
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+    def update(self, *args, **kwargs):
+        """Update Rectangle attributes."""
+        if args:
+            attrs = ['id', 'width', 'height', 'x', 'y']
+            for i, arg in enumerate(args):
+                setattr(self, attrs[i], arg)
+        else:
+            for key, value in kwargs.items():
+                if key in ['id', 'width', 'height', 'x', 'y']:
+                    setattr(self, key, value)
 
+    def to_dictionary(self):
+        """Return a dictionary representation of the Rectangle object."""
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }

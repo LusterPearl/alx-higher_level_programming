@@ -2,12 +2,13 @@
 """ A class Square """
 
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class Square(Rectangle):
     """Square class that inherits from Rectangle"""
 
-    def __init__(self,, size, x=0, y=0, id=None):
+    def __init__(self, size, x=0, y=0, id=None):
         """Initiliaze Square instance"""
         super().__init__(size, size, x, y, id)
 
@@ -15,7 +16,7 @@ class Square(Rectangle):
         """Update attributes of the Square instance"""
         if args:
             attr_list = ['id', 'size', 'x', 'y']
-            for i, attr in enumerate(atr_list):
+            for i, attr in enumerate(attr_list):
                 if i < len(args):
                     setattr(self, attr, args[i])
         else:
@@ -35,7 +36,8 @@ class Square(Rectangle):
 
     def __str__(self):
         """Return string representation of Square"""
-        return "[Square ({}) {}/{} = {}".format(self.id, self.x self.y, self.width)
+        return "[Square ({}) {}/{} = {}".format(self.id, self.x, self.y, self.width)
+
     def to_dictionary(self):
         """Returns a dictionary representation of a Square."""
         return {
