@@ -47,9 +47,25 @@ class Square(Rectangle):
             'y': self.y
         }
 
+    def to_csv(self):
+        data = {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
+        }
+        return super().to_csv(data)
+
     @staticmethod
     def from_json_sring(json_string):
         """Returns the list of dictionaries represented by json_string"""
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+
+    def to_csv(self):
+        """Return data for serialization to CSV format."""
+        return [self.id, self.width, self.height, self.x, self.y]
+
+    def to_csv(self, data):
+        return f"{data['id']},data['width']},{data['height']},{data['x']}, {data['y']}"

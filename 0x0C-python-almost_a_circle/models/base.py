@@ -2,6 +2,7 @@
 """ A first claas named Base. """
 
 import json
+import turtle
 
 
 class Base:
@@ -65,3 +66,68 @@ class Base:
                 return [cls.create(**inst) for inst in instances]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serialize objects to CSV and save to a file."""
+        filename = cls.__name__ + ".csv"
+        data = [obj.to_csv() for obj in list_objs]
+        with open(filename, mode="w", newline="") as file:
+            writer = csv.writer(file)
+            for obj_data in data:
+                writer.writerow(obj_data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserialize objects from CSV file and return a list."""
+        filename = cls.__name__ + ".csv"
+        objects = []
+        if not os.path.exists(filename):
+            return objects
+
+        with open(filename, mode="r", newline="") as file:
+            reader = csv.reader(file)
+            for obj_data in reader:
+                obj_data = [int(data) for data in obj_data]
+                if cls.__name__ == "Rectangle":
+                    obj = cls(0, 0)
+                else:
+                    obj = cls(0)
+                obj.from_csv(obj_data)
+                objects.append(obj)
+        return objects
+
+    def to_csv(cls, list_objs):
+        return json.dumps([obj.to_dictionary() for obj in list_objs])
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        window = turtle.Screen()
+        window.bgcolor("white")
+
+        """create a Turtle object for drawing """
+        drawer = turtle.Turtle()
+        drawer.shape("turtle")
+        drawer.color("blue")
+        drawer.speed(1)
+
+        for rect in list_rectangles:
+            drawer.penup()
+            drawer.goto(rect.x, rect.y)
+            drawer.pendown()
+            for _ in range(2):
+                drawer.forward(rect.width)
+                drawer.left(90)
+                drawer.forward(rect.height)
+                drawer.left(90)
+
+        for square in list_squares:
+            drawer.penup()
+            drawer.goto(square.x, square.y)
+            drawer.pendown()
+            for _ in range(4):
+                drawer.forward(square.size)
+                drawer.left(90)
+
+        """Close the window on click """
+        window.exitonclick()
