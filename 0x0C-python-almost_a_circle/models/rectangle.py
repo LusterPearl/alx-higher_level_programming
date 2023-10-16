@@ -120,13 +120,9 @@ class Rectangle(Base):
     def to_csv(self):
         """Return data for serialization to CSV format."""
         return (
-            f"{data['id']}"
-            f"{data['width']},"
-            f"{data['height']},"
-            f"{data['x']},"
-            f"{data['y']}"
+            f"{self.id},"
+            f"{self.width},"
+            f"{self.height},"
+            f"{self.x},"
+            f"{self.y}"
         )
-
-    def to_csv(self, data):
-        """Initialize attributes from CSV data."""
-        return "f{data['id']},{data}"
