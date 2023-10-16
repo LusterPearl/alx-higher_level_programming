@@ -6,6 +6,13 @@ from models.base import Base
 
 class Square(Base):
     """Square class that inherits from Rectangle"""
+    """
+    A class that defines a square.
+
+    Attributes:
+        width (int): The width of the square.
+        height (int): The height of the square.
+    """
 
     def __init__(self, size, x=0, y=0, id=None):
         """Initiliaze Square instance"""

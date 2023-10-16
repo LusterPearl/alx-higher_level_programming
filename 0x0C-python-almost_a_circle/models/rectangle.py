@@ -6,6 +6,13 @@ from models.base import Base
 
 class Rectangle(Base):
     """Rectangle class that inherits from Base"""
+    """
+    A class that defines a rectangle that inherits
+
+    Attributes:
+        width (int): The width of the rectangle.
+        height (int): The height of the rectangle.
+    """
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize Rectangle instance"""

@@ -7,7 +7,13 @@ import csv
 
 
 class Base:
-    """Base class for managing id attribute"""
+    """
+    A class that defines a Base for managing id.
+
+    Attributes:
+        width : The width of the Base
+        height : The height of the Base
+    """
 
     __nb_objects = 0
 
