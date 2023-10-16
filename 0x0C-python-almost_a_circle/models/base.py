@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-""" A first claas named Base. """
+""" A first class named Base. """
 
 import json
 import turtle
-
+import csv
+from models.rectangle import Rectangle
 
 class Base:
     """Base class for managing id attribute"""
@@ -70,12 +71,29 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Serialize objects to CSV and save to a file."""
+        if list_objs is None:
+            list_objs = []
+
         filename = cls.__name__ + ".csv"
-        data = [obj.to_csv() for obj in list_objs]
-        with open(filename, mode="w", newline="") as file:
+
+        with open(filename, mode='w', newline='') as file:
             writer = csv.writer(file)
-            for obj_data in data:
-                writer.writerow(obj_data)
+            for obj in list_objs:
+                if cls is Rectangle:
+                    data = {
+                        'id': obj.id,
+                        'width': obj.height,
+                        'x': obj.x,
+                        'y': obj.y
+                    }
+                elif cls is Square:
+                    data = {
+                        'id': obj.id,
+                        'size':obj.size,
+                        'x': obj.x,
+                        'y': obj.y
+                    }
+                writer.writerow([cls.to_csv(data)])
 
     @classmethod
     def load_from_file_csv(cls):
@@ -99,6 +117,10 @@ class Base:
 
     def to_csv(cls, list_objs):
         return json.dumps([obj.to_dictionary() for obj in list_objs])
+
+    def some_function_that_uses_rectangle():
+        from models.rectangle import Rectangle
+        r = Rectangle(10, 20)
 
     @staticmethod
     def draw(list_rectangles, list_squares):

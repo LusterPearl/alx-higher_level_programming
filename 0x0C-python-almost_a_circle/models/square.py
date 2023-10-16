@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """ A class Square """
 
-from models.rectangle import Rectangle
+"""from models.rectangle import Rectangle"""
 from models.base import Base
+import csv
 
 
-class Square(Rectangle):
+class Square(Base):
     """Square class that inherits from Rectangle"""
 
     def __init__(self, size, x=0, y=0, id=None):
@@ -68,4 +69,4 @@ class Square(Rectangle):
         return [self.id, self.width, self.height, self.x, self.y]
 
     def to_csv(self, data):
-        return f"{data['id']},data['width']},{data['height']},{data['x']}, {data['y']}"
+        return f"{data['id']},{data['width']},{data['height']},{data['x']}, {data['y']}"
