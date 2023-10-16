@@ -5,6 +5,7 @@ import json
 import turtle
 import csv
 
+
 class Base:
     """Base class for managing id attribute"""
 
@@ -88,7 +89,7 @@ class Base:
                 elif cls is Square:
                     data = {
                         'id': obj.id,
-                        'size':obj.size,
+                        'size': obj.size,
                         'x': obj.x,
                         'y': obj.y
                     }

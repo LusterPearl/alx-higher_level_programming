@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ A class Square """
 
-"""from models.rectangle import Rectangle"""
 from models.base import Base
 
 
@@ -36,7 +35,8 @@ class Square(Base):
 
     def __str__(self):
         """Return string representation of Square"""
-        return "[Square ({}) {}/{} = {}".format(self.id, self.x, self.y, self.width)
+        return "[Square ({}) {}/{} = {}".format(self.id,
+                                                self.x, self.y, self.width)
 
     def to_dictionary(self):
         """Returns a dictionary representation of a Square."""
@@ -68,4 +68,10 @@ class Square(Base):
         return [self.id, self.width, self.height, self.x, self.y]
 
     def to_csv(self, data):
-        return f"{data['id']},{data['width']},{data['height']},{data['x']}, {data['y']}"
+        return (
+            f"{data['id']},"
+            f"{data['width']},"
+            f"{data['height']},"
+            f"{data['x']},"
+            f"{data['y']}"
+        )
