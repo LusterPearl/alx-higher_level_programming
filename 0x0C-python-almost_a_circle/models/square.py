@@ -16,7 +16,10 @@ class Square(Base):
 
     def __init__(self, size, x=0, y=0, id=None):
         """Initiliaze Square instance"""
-        super().__init__(size, size, x, y, id)
+        super().__init__(id)
+        self.size = size
+        self.x = x
+        self.y = y
 
     def update(self, *args, **kwargs):
         """Update attributes of the Square instance"""
@@ -54,17 +57,19 @@ class Square(Base):
             'y': self.y
         }
 
-    def to_csv(self):
-        data = {
-            'id': self.id,
-            'size': self.size,
-            'x': self.x,
-            'y': self.y
-        }
-        return super().to_csv(data)
+    def area(self):
+        """Calculating the area of the square"""
+        return self.size ** 2
+
+    def display(self):
+        """Display a visual representation of the square"""
+        for _ in range(self.y):
+            print()
+        for _ in range(self.size):
+            print(" " * self.x + "#" * self.size)
 
     @staticmethod
-    def from_json_sring(json_string):
+    def from_json_string(json_string):
         """Returns the list of dictionaries represented by json_string"""
         if json_string is None or json_string == "":
             return []
