@@ -4,7 +4,6 @@
 import json
 import turtle
 import csv
-from models.rectangle import Rectangle
 
 class Base:
     """Base class for managing id attribute"""
@@ -118,9 +117,9 @@ class Base:
     def to_csv(cls, list_objs):
         return json.dumps([obj.to_dictionary() for obj in list_objs])
 
-    def some_function_that_uses_rectangle():
+    """def some_function_that_uses_rectangle():
         from models.rectangle import Rectangle
-        r = Rectangle(10, 20)
+        r = Rectangle(10, 20)"""
 
     @staticmethod
     def draw(list_rectangles, list_squares):

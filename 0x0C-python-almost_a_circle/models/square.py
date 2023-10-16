@@ -3,7 +3,6 @@
 
 """from models.rectangle import Rectangle"""
 from models.base import Base
-import csv
 
 
 class Square(Base):
