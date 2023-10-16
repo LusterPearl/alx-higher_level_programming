@@ -4,7 +4,6 @@
 import json
 import turtle
 import csv
-from models.rectangle import Rectangle
 
 class Base:
     """

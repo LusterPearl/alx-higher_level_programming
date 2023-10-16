@@ -15,6 +15,3 @@ class TestRectangleUpdate(unittest.TestCase):
         self.assertEqual(r1.x, 4)
         r1.update(89, 2, 3, 4, 5)
         self.assertEqual(r1.y, 5)
-
-if __name__ == '__main__:
-    unittest.main()

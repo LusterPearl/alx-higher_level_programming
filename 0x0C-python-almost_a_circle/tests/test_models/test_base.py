@@ -32,13 +32,14 @@ class TestBase(unittest.TestCase):
         r1 = Rectangle(10, 7, 2, 8)
         dictionary = r1.to_dictionary()
         json_string = Base.to_json_string([dictionary])
-        self.assertEqual(json_string, '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]')
-        
+        self.assertEqual(json_string, '[{"x": 2, "width": 10,
+                                        "id": 1, "height": 7, "y": 8}]')
+
         """ Test with an empty list ."""
         empty_list = []
         json_string = Base.to_json_string(empty_list)
         self.assertEqual(json_string, '[]')
-        
+
         """ Test with None """
         json_string = Base.to_json_string(None)
         self.assertEqual(json_string, '[]')
@@ -62,7 +63,7 @@ class TestBase(unittest.TestCase):
             filename = cls.__name__ + ".json"
             if os.path.exists(filename):
                 os.remove(filename)
-        
+
         """ Test save_to_file with Rectangle instance """
         rect1 = Rectangle(10, 20)
         rect2 = Rectangle(5, 5)
@@ -70,7 +71,8 @@ class TestBase(unittest.TestCase):
 
         with open("Rectangle.json", "r") as file:
             result = file.read()
-            expected = Base.to_json_string([rect1.to_dictionary(), rect2.to_dictionary()])
+            expected = Base.to_json_string([rect1.to_dictionary(),
+                                            rect2.to_dictionary()])
             self.assertEqual(result, expected)
 
         """Test save_to_file with Square instances. """
@@ -80,11 +82,12 @@ class TestBase(unittest.TestCase):
 
         with open("Square.json", "r") as file:
             result = file.read()
-            expected = Base.to_json_string([square1.to_dictionary(), square2.to_dictionary()])
+            expected = Base.to_json_string([square1.to_dictionary(),
+                                            square2.to_dictionary()])
             self.assertEqual(result, expected)
 
         """ clean up any created JSON file """
-        for cls [Base, Rectangle, Square]:
+        for cls[Base, Rectangle, Square]:
             filename = clas.__name__ + ".json"
             if os.path.exists(filename):
                 os.remove(filename)
@@ -116,7 +119,7 @@ class TestBase(unittest.TestCase):
         self.asseertEqual(r1.height, 5)
         self.assertEqual(r1.x, 1)
         self.assertEqual(r1.y, 0)
-    
+
     def test_create_square(self):
         """ Test create a Square from a dictionary """
         s1_dictionary = {'id': 2, 'size': 4, 'x': 0, 'y': 2}
@@ -141,7 +144,8 @@ class TestBase(unittest.TestCase):
 
         list_rectangles_output = Rectangle.load_from_file()
 
-        for rect_in, rect_out in zip(list_rectangles_input, list_rectangles_output):
+        for rect_in, rect_out in zip(list_rectangles_input,
+                                     list_rectangles_output):
             self.assertEqual(rect_in.__str(), rect_out.__str__())
 
         if os.path.exits(filename):
@@ -161,7 +165,8 @@ class TestBase(unittest.TestCase):
 
         list_squares_output = Square.load_from_file()
 
-        for square_in, square_out in zip(list_squares_input, list_squares_output):
+        for square_in, square_out in zip(list_squares_input,
+                                         list_squares_output):
             self.assertEqual(suqare_in.__str(), square_out.__str__())
 
         if os.path.exists(filename):

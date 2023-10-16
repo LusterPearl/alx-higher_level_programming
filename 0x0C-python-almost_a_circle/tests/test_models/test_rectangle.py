@@ -1,6 +1,7 @@
 import unittest
 from models.rectangle import Rectangle
 
+
 class TestRectangle(unittest.TestCase):
     def test_rectangle+attributes(self):
         r = Rectangle(5, 10, 1, 2, 42)
@@ -25,7 +26,4 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaise(ValueError):
             r = Rectangle(0, 10)
         with self.assertRaises(TypeError):
-           r = Rectangle("width", 10)
-
-if __name__ == '__main':
-    unittest.main()
+            r = Rectangle("width", 10)

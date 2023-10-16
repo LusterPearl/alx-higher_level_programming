@@ -13,6 +13,3 @@ class TestRectangleUpdateKwargs(unittest.TestCase):
         r1.update(y=1, width=2, x=3, id=89)
         self.assertEqual(r1.y, 1)
         self.assertEqual(r1.id, 89)
-
-if __name__ == '__main__':
-    unittest.main()

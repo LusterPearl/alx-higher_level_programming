@@ -13,8 +13,8 @@ class TestRectangleStr(unittest.TestCase):
         print(r1)
         print(r2)
         sys.stdout = sys.__stdout__
-        expected_output = "[Rectangle] (12) 2/1 - 4/6\n[Rectangle] (1) 1/0 - 5/5\n"
+        expected_output = (
+                            "[Rectangle] (12) 2/1 - 4/6\n"
+                            "[Rectangle] (1) 1/0 - 5/5\n"
+                            )
         self.assertEqual(captured_output.getvalue(), expected_output)
-
-if __name__ == '__main__':
-    unittest.main()

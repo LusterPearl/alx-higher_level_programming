@@ -1,6 +1,7 @@
 import unittest
 from models.rectangle import Rectangle
 
+
 class TestRectangleValidation(unittest.TestCase):
     def test_invalid_width(self):
         with self.assertRaises(TypeError):
@@ -25,6 +26,3 @@ class TestRectangleValidation(unittest.TestCase):
             r = Rectangle(10, 10, 0, "invalid")
         with self.assertRaises(ValueError):
             r = Rectangle(10, 10, 0, -1)
-
-if __name__ == '__main__:
-    unittest.main()
