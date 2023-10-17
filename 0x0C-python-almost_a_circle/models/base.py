@@ -65,7 +65,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """ create a file to read. """
+        """ Serialize objects to CSV  and create a file to read. """
         filename = cls.__name__ + ".json"
         try:
             with open(filename, 'r') as file:
