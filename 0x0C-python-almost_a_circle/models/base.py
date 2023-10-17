@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" A first class named Base. """
+""" A first class named Base the folder will become a Python package. """
 
 import json
 import turtle

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" A class Square """
+""" A class Square that inherits from Base"""
 
 from models.base import Base
 
