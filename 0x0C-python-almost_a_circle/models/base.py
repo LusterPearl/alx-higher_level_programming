@@ -121,6 +121,7 @@ class Base:
         return objects
 
     def to_csv(cls, list_objs):
+        """ function to base to_csv to return json.dumps"""
         return json.dumps([obj.to_dictionary() for obj in list_objs])
 
     """def some_function_that_uses_rectangle():
@@ -129,6 +130,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        """click or daraw turtle for drawing"""
         window = turtle.Screen()
         window.bgcolor("white")
 
