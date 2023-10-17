@@ -5,6 +5,7 @@ import json
 import turtle
 import csv
 
+
 class Base:
     """
     A class that defines a Base for managing id.
