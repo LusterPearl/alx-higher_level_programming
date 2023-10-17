@@ -45,12 +45,14 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """ Return a JSON sting representation of json.loads. """
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
+        """ Return a dictionary Rectangle and Square. """
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
         elif cls.__name__ == "Square":
@@ -63,6 +65,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """ create a file to read. """
         filename = cls.__name__ + ".json"
         try:
             with open(filename, 'r') as file:
