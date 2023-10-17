@@ -80,6 +80,7 @@ class Square(Base):
         return [self.id, self.width, self.height, self.x, self.y]
 
     def to_csv(self, data):
+        """ Return data for CSV format and data. """
         return (
             f"{data['id']},"
             f"{data['width']},"
