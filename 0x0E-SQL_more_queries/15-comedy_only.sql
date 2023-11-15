@@ -1,7 +1,7 @@
 -- Selecting show titles for Comedy genre and displaying the result
-SELECT tv_shows.title
-FROM tv_shows
-JOIN tv_show_genres ON tv_shows.id = tv_show_genres.tv_show_id
-JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
-WHERE tv_genres.name = 'Comedy'
-ORDER BY tv_shows.title ASC;
+SELECT m.title
+FROM tv_shows AS m
+INNER JOIN tv_show_genres AS d ON m.id = d.show_id
+INNER JOIN tv_genres AS f ON f.id = d.genres.id
+WHERE f.name = 'Comedy'
+ORDER BY m.title;
