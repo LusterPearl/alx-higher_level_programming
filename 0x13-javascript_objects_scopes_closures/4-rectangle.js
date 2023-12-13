@@ -1,4 +1,4 @@
- #!/usr/bin/node
+#!/usr/bin/node
 
 class Rectangle {
   constructor (w, h) {
@@ -11,24 +11,24 @@ class Rectangle {
     }
   }
 
-print () {
-  if (this.width !== undefined && this.height !== undefined) {
-    for (let i = 0; i < this.height; i++) {
-      console.log('X'.repeat(this.width));
+  print () {
+    if (this.width !== undefined && this.height !== undefined) {
+      for (let i = 0; i < this.height; i++) {
+        console.log('X'.repeat(this.width));
+      }
     }
   }
-}
 
-rotate () {
-  if (this.width !== undefined && this.height !== undefined) {
-    [this.width, this.height] = [this.height, this.width];
+  rotate () {
+    if (this.width !== undefined && this.height !== undefined) {
+      [this.width, this.height] = [this.height, this.width];
+    }
   }
-}
 
-double() {
-  if (this.width !== undefined && this.height !== undefined) {
-    this.width *= 2;
-    this.height *= 2;
+  double () {
+    if (this.width !== undefined && this.height !== undefined) {
+      this.width *= 2;
+      this.height *= 2;
     }
   }
 }
