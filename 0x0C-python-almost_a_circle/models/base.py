@@ -116,7 +116,7 @@ class Base:
             reader = csv.reader(file)
             for obj_data in reader:
                 obj_data = [int(data) for data in obj_data]
-                if cls.__name__ == "Rectangle":
+i                if cls.__name__ == "Rectangle":
                     obj = cls(0, 0)
                 else:
                     obj = cls(0)
@@ -162,5 +162,5 @@ class Base:
                 drawer.forward(square.size)
                 drawer.left(90)
 
-        """Close the window on click """
+ i       """Close the window on click """
         window.exitonclick()
