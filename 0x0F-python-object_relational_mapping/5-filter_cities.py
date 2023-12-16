@@ -5,7 +5,7 @@ of that state, using the database hbtn_0e_4_usa (SQL injection free!).
 
 
 Usage: ./5-my_filter_states.py <mysql_username> <mysql_password>
-        <database_name> <state_name_searched>
+        <database_name> <state_name>
 """
 
 import MySQLdb
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("""
         Usage: ./5-filter_states.py <mysql_username> <mysql_passsword>
-                <database_name>
+                <database_name <state_name>
         """)
         sys.exit(1)
 

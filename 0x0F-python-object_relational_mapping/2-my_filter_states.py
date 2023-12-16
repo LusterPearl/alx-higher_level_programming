@@ -3,8 +3,6 @@
 Script that takes in an argument and displays all values in the states table
 of hbtn_0e_0_usa where name matches the argument.
 
-Usage: ./2-my_filter_states.py <mysql_username> <mysql_password>
-        <database_name> <state_name_searched>
 """
 
 import MySQLdb
@@ -15,7 +13,7 @@ if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("""
         Usage: ./2-filter_states.py <mysql_username> <mysql_passsword>
-                <database_name>
+                <database_name> <state_name_searched>
         """)
         sys.exit(1)
 
