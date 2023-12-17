@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
-    """ Database connection paramatets """
+    """ Database connection paramaters """
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]

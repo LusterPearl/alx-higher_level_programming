@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""Script that lists all state object from the database
+"""Script that deletes all state objects with a name containing the letters
 """
+
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -8,7 +9,7 @@ from model_state import Base, State
 
 
 if __name__ == "__main__":
-    """ Main execution """
+    """ Database connectin paramaters """
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -29,5 +30,5 @@ if __name__ == "__main__":
     for state in states_to_delete:
         session.delete(state)
 
-    """ commit the changes """
+    """ Commit the changes in it  """
     session.commit()
