@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Script that creates californai and san francisco
+"""
+Script that creates californai and san francisco
 """
 
 import sys
