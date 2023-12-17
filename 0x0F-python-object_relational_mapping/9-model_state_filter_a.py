@@ -30,4 +30,4 @@ if __name__ == "__main__":
 
     """ Display the result """
     for state in states_with_a:
-        print("{}: {}".format(first_state.id, state.name))
+        print("{}: {}".format(state.id, state.name))
