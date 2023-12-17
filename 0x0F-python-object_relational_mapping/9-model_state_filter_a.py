@@ -26,9 +26,8 @@ if __name__ == "__main__":
 
     """ Query the database to get the first object """
     states_with_a = session.query(State).filter(State.name.like(
-                                                '%a%')).order_by(State.id).all(
-                                                )
+                                  '%a%')).order_by(State.id).all()
 
     """ Display the result """
     for state in states_with_a:
-        print("{}: {}".format(first_state.id, first_state.name))
+        print("{}: {}".format(first_state.id, state.name))
