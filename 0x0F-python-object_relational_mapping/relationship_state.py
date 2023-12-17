@@ -5,8 +5,7 @@ Module containing the class definition of a State
 
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from model_city import City
-from model_state import Base
+from model_city import Base, City
 
 
 class State(Base):
