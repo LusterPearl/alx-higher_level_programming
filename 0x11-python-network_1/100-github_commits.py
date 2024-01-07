@@ -11,6 +11,7 @@ The second argument will be the owner name
 import requests
 from sys import argv
 
+
 def fetch_commits(repo, owner):
     """Fetches and prints 10 most recent commits from a GitHub repository."""
     url = f'https://api.github.com/repos/{owner}/{repo}/commits'
@@ -32,6 +33,7 @@ def fetch_commits(repo, owner):
             print(f"Error: {response.status_code}")
     except requests.RequestException as e:
         print(f"Request failed: {e}")
+
 
 if __name__ == "__main__":
     if len(argv) != 3:
