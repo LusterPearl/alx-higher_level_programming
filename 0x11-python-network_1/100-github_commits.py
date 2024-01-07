@@ -17,7 +17,6 @@ def fetch_commits(repo, owner):
     url = f'https://api.github.com/repos/{owner}/{repo}/commits'
     headers = {
         'Accept': 'application/vnd.github+json',
-        'X-GitHub-Api-Version': '2022-11-28',
     }
 
     try:
