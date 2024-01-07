@@ -7,25 +7,22 @@ https://developer.github.com/v3/repos/commits/
 Print all commits by: `<sha>: <author name>` (one by line
 """
 import requests
-import sys
+from sys import argv
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    token = sys.argv[2]
-
-    url = "https://api.github.com/user"
-
-    auth = (username, token)
-
-    response = requests.get(url, auth=auth)
-
-    try:
-        json_data = response.json()
-
-        if 'id' in json_data:
-            print(json_data['id'])
+    repo = argv[1]
+    owner = argv[2]
+    headers = {
+            'Accept': 'application/vnd.github+json',
+            'X-GitHub-Api-Version': '2022-11-28',
+            }
+    url = 'https://api.github.com/repos/' + owner + '/' + repo + '/commits'
+    req = requests.get(url, headers=headers)
+    if req.status_code == 200:
+        commits = req.json()[:10]
+        for commit in commits:
+            sha = commit['sha']
+            author = commit['commit']['author']['name']
+            print("{}: {}".format(sha, author))
         else:
-            print("None")
-
-    except ValueError:
-        print("None")
+            print("Error: {}".format(req.status_code))
