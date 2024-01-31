@@ -13,9 +13,10 @@ const filePath = process.argv[3];
 
 // Make a request to the specifed URL
 request(url, (error, response, body) => {
-  if (error) 
-	console.error(error.message);
+  if (error) {
+    console.error(error.message);
   } else if (response.statusCode === 200) {
+    // Write the body content to the specified file path
     fs.writeFileSync(filePath, body, 'utf-8');
   } else {
     console.error(`Failed to retrieve content. Status code: ${response.statusCode}`);
