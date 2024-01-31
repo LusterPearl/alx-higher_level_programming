@@ -1,23 +1,26 @@
 #!/usr/bin/node
 const fs = require('fs');
 
-// Get the file and string to write from the command
-const filePath = process.argv[2];
-const contentToWrite = process.argv[3];
+// Function to write content to a file
+function writeToFile (filePath, content) {
+  try {
+    // Synchronously write the content to the file using utf-8 encoding
+    fs.writeFileSync(filePath, content, 'utf-8');
+  } catch (error) {
+    // Handle errors if any occur during file writing
+    console.error(error);
+  }
+}
 
-// Check if both file path and content are provided
-if (!filePath || !contentToWrite) {
-  console.error('Usage: ./1-writeme.js <ile_path> <content_to_write>');
+// Check if the correct number of command-line arguments is provided
+if (process.argv.length !== 4) {
+  console.error('Usage: ./1-writeme.js <file_path> <content>');
   process.exit(1);
 }
 
-// Write the string to the file in utf-8
-fs.writeFile(filePath, contentToWrite, 'utf-8', (err) => {
-  if (err) {
-    // Print the error object if an error ocured during writing
-    console.error(err);
-    console.error(err);
-  } else {
-    console.log(contentToWrite);
-  }
-});
+// Retrieve file path and content from command-line arguments
+const filePath = process.argv[2];
+const content = process.argv[3];
+
+// Call the writeToFile function to perform the file writing operation
+writeToFile(filePath, content);
