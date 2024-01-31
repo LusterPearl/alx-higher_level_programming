@@ -15,7 +15,7 @@ const characterId = 18;
 request(apiUrl, (error, response, body) => {
   // Check for request error
   if (error) {
-    console.error(error.message);
+    console.error('Error:', error.message);
   } else if (response.statusCode === 200) {
     // Parse the JSON response
     const filmsData = JSON.parse(body);
